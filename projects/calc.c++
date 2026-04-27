@@ -42,33 +42,36 @@ double calculate(double num1, double num2, int opp){
     }
 }
 
-double userInteraction(){
-double num1, num2, opp;
+double userInteraction(int type){
+    double num1;
+    double num2;
+    double  opp;
 
-    cout << "Number1:"<< endl;
-    std::cin >> num1;
-    cout << "Number2:"<< endl;
-    std::cin >> num2;
-    cout << "Opp(1-4 -> +,-,/,*):"<< endl;
-    std::cin >> opp;
+    switch(type){
+        case 1:
+        cout << "Number1:"<< endl;
+        std::cin >> num1;
+        return num1;
 
-    return num1, num2, opp;
+        case 2:
+        cout << "Number2:"<< endl;
+        std::cin >> num2;
+        return num2;
 
+        case 3:
+        cout << "Opp(1-4 -> +,-,/,*):"<< endl;
+        std::cin >> opp;
+        return opp;
+    }
 }
 
 int main(){
-    double num1, num2, opp = userInteraction();
+    double num1 = userInteraction(1);
+    double num2 = userInteraction(2);
+    double opp = userInteraction(3);
     double result = calculate(num1, num2, opp);
 
     cout << "Result:" << result << endl;
 
     return 0;
-
 }
-
-
-/*
-Case for non number opperaters
-Add checks for user input
-
-*/
