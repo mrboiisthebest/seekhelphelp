@@ -6,12 +6,19 @@
 
 class car{
     public:
-        std::string make = "DEFAULT-MAKE";
+        std::string make ="DEFAULT-MAKE";
         bool powered = false;
         std::string name = "DEFAULT-CAR";
-
+        int year = 0;
         std::vector<std::string> data;
 
+    car(std::string make, std::string name, int year){
+        this->make = make;
+        this->name = name;
+        this->year = year;
+
+        this->UpdateData();
+    }
     void Power(bool power){
         if (power){
             std::cout << "Turned on!"; 
@@ -26,6 +33,7 @@ class car{
         this->data.push_back(this->name);
         this->data.push_back(std::to_string(this->powered));
         this->data.push_back(this->make);
+        this->data.push_back(std::to_string(this->year));
     }
 
     void PrintData(){
@@ -37,12 +45,8 @@ class car{
 
 
 int main(){
-    car Honda;
-    Honda.Power(true);
-    Honda.make = "Honda";
-    Honda.name = "TheBatMobile";
+    car Honda("Honda", "BatMobile", 2031);
 
-    Honda.UpdateData();
     Honda.PrintData();
 
     return 0;
